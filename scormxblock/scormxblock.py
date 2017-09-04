@@ -206,7 +206,8 @@ class ScormXBlock(XBlock):
     def get_context_student(self):
         scorm_file_path = ''
         if self.scorm_file:
-            scheme = 'https' if settings.HTTPS == 'on' else 'http'
+            #scheme = 'https' if settings.HTTPS == 'on' else 'http'
+            scheme = 'http' if settings.HTTPS == 'on' else 'http'
             scorm_file_path = '{}://{}{}'.format(scheme, settings.ENV_TOKENS.get('LMS_BASE'), self.scorm_file)
 
         return {
